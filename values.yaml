@@ -1,0 +1,19 @@
+#This is a values yaml
+enviroment:
+  name: guestbook
+  label : music
+
+labels:
+  app: guestbook
+service:
+  #name is always {enviroment.name}-suffix
+  type : LoadBalancer
+  port: 80
+
+deployment:
+  #name is always {enviroment.name}-suffix
+  replicas: 3
+  container: 
+    name:  guestbook-cont
+    image: gcr.io/google-samples/gb-frontend:v5
+    port: 80
